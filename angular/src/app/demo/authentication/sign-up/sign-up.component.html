@@ -1,0 +1,63 @@
+<div class="auth-wrapper">
+  <div class="auth-content">
+    <div class="card">
+      <div class="row align-items-center text-center">
+        <div class="col-md-12">
+          <div class="card-body">
+            <img src="https://teamdev.tn/wp-content/uploads/2020/09/1.png" alt="logo" class="img-fluid mb-4" />
+            <h4 class="mb-3 f-w-400">Sign up</h4>
+            <form [formGroup]="formLogin" (ngSubmit)="onRegister()" class="was-validated">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="feather icon-user"></i></span>
+                <input type="text" class="form-control"  [(ngModel)]="name" placeholder="Username" formControlName="username" required aria-label="Username" placeholder="Enter name" name="name" aria-describedby="basic-addon1" />
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2"><i class="feather icon-mail"></i></span>
+                <input type="email" class="form-control"  [(ngModel)]="email" formControlName="email" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" />
+              </div>
+              <div class="input-group mb-4">
+                <span class="input-group-text cursor-pointer" (click)="togglePasswordVisibility()">
+                  <i class="feather" [ngClass]="showPassword ? 'icon-eye-off' : 'icon-eye'"></i>
+                </span>
+                <input
+                  type="{{ showPassword ? 'text' : 'password' }}"
+                  class="form-control"
+                  formControlName="password"
+                  required
+                  [(ngModel)]="password"
+                  id="exampleInputPassword1"
+                  aria-describedby="password"
+                  placeholder="Enter password"
+                />
+              </div>
+              <div class="input-group mb-4">
+                <span class="input-group-text cursor-pointer" (click)="togglePasswordVisibility()">
+                  <i class="feather" [ngClass]="showPassword ? 'icon-eye-off' : 'icon-eye'"></i>
+                </span>
+                <input
+                  type="{{ showPassword ? 'text' : 'password' }}"
+                  class="form-control"
+                  formControlName="confirmPassword"
+                  required
+                  [(ngModel)]="confirmPassword"
+                  id="exampleInputPassword1"
+                  aria-describedby="confirmPassword"
+                  placeholder="Confirm password"
+                />
+              </div>
+              <div *ngIf="errorVisible" class="text-danger" style="margin-bottom: 2%;">
+                {{error}}
+              </div>
+            <div class="d-grid">
+              <button *ngIf="!name||!email||!password||!confirmPassword||formLogin.get('email')?.hasError('email')" disabled type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+              <button *ngIf="name&&email&&password&&confirmPassword&&!formLogin.get('email')?.hasError('email')"   type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+            </div>
+            <p class="mb-2">Already have an account? <a [routerLink]="['/login']" class="f-w-400">Signin</a></p>
+          </form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

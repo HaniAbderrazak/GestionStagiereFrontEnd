@@ -1,0 +1,107 @@
+<app-navigation
+  class="pcoded-navbar menupos-fixed menu-light"
+  [ngClass]="{
+    'navbar-collapsed': navCollapsed,
+    'mob-open': navCollapsedMob
+  }"
+  (NavCollapsedMob)="navMobClick()"
+></app-navigation>
+<app-nav-bar
+  class="navbar pcoded-header navbar-expand-lg navbar-light header-blue headerPos-fixed"
+  (NavCollapse)="this.navCollapsed = !this.navCollapsed"
+  (NavCollapsedMob)="navMobClick()"
+></app-nav-bar>
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+      <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+          <div class="main-body">
+            <div class="page-wrapper">
+
+
+                <app-card cardTitle="Stagiere Information">
+
+                    <div class="container emp-profile">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="profile-img">
+                            <img src="{{stagiere.image}}" alt=""/>
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="profile-head">
+                            <h3>{{stagiere.nom}}</h3>
+                            <h4>{{stagiere.prenom}}</h4>
+                            <div class="tab-content profile-tab" id="myTabContent">
+                              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                      <label><i class="fas fa-envelope"></i> Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <p><a [href]="'mailto:' + stagiere.email" (click)="sendEmail()">{{stagiere.email}}</a></p>
+                                    </div>
+                                  </div>
+                                <div class="row" *ngIf="stagiere?.tel">
+                                  <div class="col-md-6">
+                                    <label>Telephone</label>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <p>{{stagiere.tel}}</p>
+                                  </div>
+                                </div>
+                                <div class="row" *ngIf="stagiere?.faculte">
+                                  <div class="col-md-6">
+                                    <label>Faculte</label>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <p>{{stagiere.faculte}}</p>
+                                  </div>
+                                </div>
+                                <div class="row"*ngIf="stagiere?.adresse">
+                                  <div class="col-md-6">
+                                    <label>adresse</label>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <p>{{stagiere.adresse}}</p>
+                                  </div>
+                                </div>
+                                <div class="row" *ngIf="stagiere?.cv">
+                                    <div class="col-md-6">
+                                      <label>CV</label>
+                                    </div>
+                                    <div class="col-md-6" >
+                                      <a [href]="createBlobUrl(stagiere?.cv)" target="_blank">View CV</a>
+
+                                      </div>
+                                  </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="buttons">
+                    <button (click)="onDeleteClick(stagiere.id)" class="btn btn-icon btn-danger">
+                        <i  class="feather icon-trash"></i>
+                      </button>
+               
+                      <button (click)="NavigateToUpdate(stagiere.id)" class="btn btn-icon btn-info">
+                       <i class="feather icon-edit"></i>
+                      </button>
+                    </div>
+                  </app-card>
+                
+                   
+                 
+                 
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

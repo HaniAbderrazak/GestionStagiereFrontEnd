@@ -1,0 +1,233 @@
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+
+  
+  .fullscreen-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(2, 2, 99);
+
+  }
+  
+  .full-screen-image {
+    position: absolute;
+    top: 150px;
+    right: 0;
+    width: 50vw;
+    height: fit-content;
+    object-fit: cover;
+    z-index: 1;
+    transition: top 2s, right 2s;
+    background-color: rgb(2, 2, 99);  }
+  .full-screen-image:hover{
+     
+     right: 40px;
+    
+   }
+   .welcome-column{
+    margin-top: -80px;
+   }
+  
+  .welcome-column,
+  .image-column {
+    
+    padding: 100px 20px; /* Adjust padding as needed */
+  }
+  .image-column{
+    color: #020263;
+  }
+    
+ 
+  
+  .welcome-heading {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 150px; /* Adjust the padding as needed */
+  }
+  .welcome-heading:hover{
+    color: burlywood;
+  }
+  
+  .welcome-text {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 50px; /* Adjust the padding as needed */
+  }
+  
+  .MyPage {
+    background-color: rgb(2, 2, 99);
+  }
+  
+  .white-bold {
+    color: white;
+    font-weight: bold;
+  }
+  .white-bold:hover{
+    color: burlywood;
+  }
+  
+  
+  /* Style changes when scrolling */
+   
+.navbar {
+    background-color:#020263;
+    transition: background-color 1s ease;
+    color: var(--navbar-scroll-text);
+    -webkit-box-shadow: var(--navbar-scroll-shadow);
+    box-shadow: var(--navbar-scroll-shadow);
+  }
+  
+ 
+  .navbar-nav li.nav-item a.nav-link {
+    /* Default link color */
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s, border-bottom 0.3s; /* Add transition for smooth effect */
+  }
+  
+  .navbar-nav li.nav-item a.nav-link:hover {
+    color:burlywood; /* Change link color on hover */
+    border-bottom: 2px solid lightgray; /* Add underline on hover */
+  }
+
+  .pro-body li {
+    list-style: none; /* Remove bullet points */
+   
+}
+.pro-body{
+    margin-left: -10px;
+}
+  .pro-body li a {
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Change link color */
+ 
+  }
+  
+  .pro-body li a:hover {
+    color: #007bff; /* Change link color on hover */
+  }
+  .name{
+    margin-right: 10px;
+  }
+  .dropdown-toggle::after {
+    border: none;
+  }
+  .body{
+    margin-top: 50px;
+  }
+  .Titre{
+    margin-bottom: 50px ;
+  }
+  /* Footer Styles */
+.footer {
+    background-color: rgb(2, 2, 99);
+    color: white;
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 5%;
+  }
+  
+ /* Footer Icons */
+.footer-icons a {
+    display: inline-block;
+    margin-right: 20px;
+    margin-left: 30px;
+    color: white;
+    font-size: 28px;
+    transition: color 0.3s;
+  }
+  
+  .footer-icons a:hover {
+    color: rgb(208, 202, 255);
+  }
+  
+  /* Footer Contact */
+  .footer-contact h3 {
+    margin-bottom: 15px;
+  }
+  
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .footer-contact h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-contact input,
+  .footer-contact button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 20%;
+  }
+  
+  .footer-description {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .footer-description p {
+    font-size: 18px;
+    max-width: 600px;
+    
+    margin: 20px 30px 30px 30px ;
+  }
+  .lien{
+    font-size: 18px;
+    max-width: 600px;
+    font-style: none;
+    margin: 20px 30px 30px 30px ;
+  }
+  .Titre{
+    margin-top: 10%;
+  }
+  .apply{
+    display: flex;
+    margin-top: 0%;
+    margin-left: 50%;
+    margin-bottom: 0%;
+    
+  }
+  .apply:hover{
+  background-color: indigo;
+    
+  }
+  .circle-image {
+    width: 200px; /* Set the desired width */
+    height: 250px; /* Set the desired height */
+    border-radius: 50%; /* Make it circular */
+    overflow: hidden; /* Hide any content outside the circle */
+    margin-left: 50%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    transform: translateX(-50%);
+    border: 2px solid #ccc; /* Add a border for styling */
+  }
+  
+  .circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain image aspect ratio and cover the circle */
+  }
+  

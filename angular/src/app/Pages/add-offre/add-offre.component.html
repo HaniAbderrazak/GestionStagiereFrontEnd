@@ -1,0 +1,53 @@
+<app-navigation
+  class="pcoded-navbar menupos-fixed menu-light"
+  [ngClass]="{
+    'navbar-collapsed': navCollapsed,
+    'mob-open': navCollapsedMob
+  }"
+  (NavCollapsedMob)="navMobClick()"
+></app-navigation>
+<app-nav-bar
+  class="navbar pcoded-header navbar-expand-lg navbar-light header-blue headerPos-fixed"
+  (NavCollapse)="this.navCollapsed = !this.navCollapsed"
+  (NavCollapsedMob)="navMobClick()"
+></app-nav-bar>
+<div class="pcoded-main-container">
+  <div class="pcoded-wrapper">
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+        <div class="main-body">
+          <div class="page-wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                  <app-card cardTitle="" [options]="false">
+                    <h5>Ajouter Offre</h5>
+                    <hr />
+                    <div class="row">
+                      <div class="col-md-6">
+                        <form (ngSubmit)="onSubmit()" action="javascript:" class="was-validated">
+                          <div class="form-group">
+                              <label for="exampleInputEmail1">Titre</label>
+                            <input type="text" class="form-control " [(ngModel)]="titre" name="titre" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Titre" />
+                            
+                          </div>
+                        
+                            <div class="mb-3">
+                              <label for="validationTextarea" class="form-label">Description</label>
+                              <textarea class="form-control " required id="validationTextarea" [(ngModel)]="description" name="description" placeholder="Description d'offre  stage"></textarea>
+                             
+                            </div>
+                         
+                          <button *ngIf="!description||!titre" disabled type="submit" class="btn btn-primary">Submit</button>
+                          <button *ngIf="description&&titre"  type="submit" class="btn btn-primary">Submit</button>
+
+                        </form>
+                      </div>
+                     </div>
+                   </app-card>
+                  </div>
+               </div>
+              </div>
+            </div>
+          </div> 
+          </div>
+        </div>

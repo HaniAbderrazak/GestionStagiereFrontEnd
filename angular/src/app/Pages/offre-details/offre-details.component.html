@@ -1,0 +1,103 @@
+<app-navigation
+  class="pcoded-navbar menupos-fixed menu-light"
+  [ngClass]="{
+    'navbar-collapsed': navCollapsed,
+    'mob-open': navCollapsedMob
+  }"
+  (NavCollapsedMob)="navMobClick()"
+></app-navigation>
+
+<app-nav-bar
+  class="navbar pcoded-header navbar-expand-lg navbar-light header-blue headerPos-fixed"
+  (NavCollapse)="this.navCollapsed = !this.navCollapsed"
+  (NavCollapsedMob)="navMobClick()"
+></app-nav-bar>
+
+<div class="pcoded-main-container">
+  <div class="pcoded-wrapper">
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+        <div class="main-body">
+          <div class="page-wrapper">
+            <div>
+              <h4>Liste de stagieres par offre</h4>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <app-card [cardTitle]="offre?.titre" class="text-white">
+                  <div class="card-body">
+                    <p class="card-text">{{ offre?.description }}</p>
+                  
+                    
+                  </div>
+                  <div style="position: absolute; top: 50px; right: 100px; display: flex; flex-direction: column; align-items: center;">
+                    <h1 style="color: #f1a878;">{{stagieres.length}}</h1>
+                    <div class="margin-left" style="color: #f1a878;">applied</div>
+                  </div>
+                  <div class="table-responsive">
+                    <table *ngIf="stagieres.length>0" class="table table-styling">
+                      <thead>
+                        <tr class=" bg-primary">
+                          <th class="th-white">image</th>
+                          <th class="th-white">First Name</th>
+                          <th class="th-white">Last Name</th>
+                          <th class="th-white">Telephone</th>
+                          <th class="th-white">email</th>
+                          <th class="th-white">info</th>
+                          <th class="th-white">actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr  *ngFor="let stage of stagieres; let i= index">
+                          <td *ngIf="!stage.image">
+                            <img src="assets/images/user/avatar-1.jpg" class="img-radius wid-30" alt="User-Profile-Image" />
+                          </td>
+                          <td *ngIf="stage.image">
+                            <img src="{{stage.image}}" class="img-radius wid-30" alt="User-Profile-Image" />
+                          </td>
+                          <td>{{stage.nom}}</td>
+                          <td>{{stage.prenom}}</td>
+                          <td>{{stage.tel}}</td>
+                          <td>{{stage.email}}</td>
+                         
+                          <ng-container *ngIf="isStagiereAccepted(stage)">
+                        <td>    <p>accepted</p> </td>
+                        <td>
+                            <button (click)=" InfoCLick(stage)" class="btn btn-icon btn-warning">
+                                <i class="feather icon-clipboard"></i>
+                               </button>
+                            </td>
+                          </ng-container>
+                          <ng-container *ngIf="!isStagiereAccepted(stage)">
+                           <td>attente</td>
+                           
+                          <button (click)="onRefuseClick(stage.id)" class="btn  btn-icon btn-danger">
+                            <i  class="feather icon-user-x"></i>
+                          </button>
+                   
+                          <button (click)="onAcceptClick(offre.id,stage.id)" class="btn btn-icon btn-info">
+                           <i class="feather icon-user-check"></i>
+                          </button>
+                          <button (click)=" InfoCLick(stage)" class="btn btn-icon btn-warning">
+                            <i class="feather icon-clipboard"></i>
+                           </button>
+                        
+                          </ng-container>
+                        </tr>
+                     
+                      </tbody>
+                    </table>
+                    </div>
+                    <div *ngIf="acceptanceSuccess" class="alert alert-success">
+                        Stagiere accepted successfully!
+                      </div>
+                </app-card>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

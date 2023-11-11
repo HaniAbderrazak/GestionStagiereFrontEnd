@@ -1,0 +1,144 @@
+<div class="MyPage">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top ">
+ 
+       <div class="container">
+         <a class="navbar-brand logo bg-transparent" href="#">
+           <img class="image" src="https://teamdev.tn/wp-content/uploads/2020/09/2.png" />
+         </a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+           <ul class="navbar-nav">
+             <li class="nav-item">
+               <a class="nav-link white-bold" href="#">Home</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link white-bold" href="#">About</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link white-bold" href="#">Contact</a>
+             </li>
+           </ul>
+         </div>
+         <ul class="ms-auto">
+             <li style=" list-style: none;">
+               <div  class="dropdown " ngbDropdown placement="auto">
+                 <a  href="javascript:" ngbDropdownToggle>
+                   <img src="{{stagiere?.image}}" class="img-radius wid-40" alt="User-Profile-Image" *ngIf="stagiere?.image" />
+                   <img src="/assets/images/UserAvatar.jpg" class="img-radius wid-40" alt="User-Profile-Image" *ngIf="!stagiere?.image" />
+                 </a>
+                 <div class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                 
+                   <ul class="pro-body">
+                     <li class="dropdown-item">
+ 
+                     <span class="name" >{{username}}</span>
+                     <a (click)="HandleLogout()" href="javascript:" class="dud-logout " title="Logout">
+                       <i class="feather icon-log-out"></i>
+                     </a>
+                   </li>
+                     <li><a (click)="Navigate()" href="javascript:" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
+                   </ul>
+                 </div>
+               </div>
+              
+               
+             </li>
+           </ul>
+           
+ 
+ 
+ 
+       </div>
+     </nav>
+   
+     <div class="fullscreen-container">
+       <div class="row">
+         <div class="col-md-4 text-center welcome-column">
+           <h1 class="welcome-heading">Stage</h1>
+           <p class="welcome-text" *ngIf="isAccepted"> welcome to our team you get accepted on this stage </p>
+           
+    
+            <div class="circle-image">
+            <img src="/assets/images/offre.jpg" alt="Selected Image" class="preview-image images" />
+             </div>
+         
+            </div>
+         <div class="col-md-8 image-column">
+          
+            <div class="full-screen-image">
+                <div class="card">
+                <h1 class="titre">{{offre?.titre}}</h1>
+                    <div class="card-body">
+                      <p class="card-text">{{ offre?.description }}</p>
+                     
+                      
+                    </div>
+                    <div style="position: absolute; top: 50px; right: 100px; display: flex; flex-direction: column; align-items: center;">
+                      <h1 style="color: #f1a878;">{{stagieres?.length}}</h1>
+                      <div class="margin-left" style="color: #f1a878;">applied</div>
+                    </div>
+                    <div class="col-md-8" style="margin-left: 10%;" *ngIf="isButtonClicked==true">
+                        <div class="alert alert-success  " role="alert">
+                       {{ error }}
+                        
+                       <button  type="button" class="btn  btn-icon position-absolute top-0 end-0 m-2 close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()">
+                           <span aria-hidden="true">&times;</span>
+                       </button>
+                       </div>
+                      </div>
+                   
+                   
+                        <button *ngIf="!isApplied" type="submit" (click)="AddDemande(offre.id)" class="apply custom-button btn btn-primary"> apply </button>
+                    
+            
+                
+                </div>
+             </div>
+     
+       </div>
+     </div>
+   </div>
+ 
+
+
+  
+ 
+   <footer class="footer">
+     <div class="col-sm-4">
+     <div class="footer-description">
+         <a class="navbar-brand logo bg-transparent" >
+             <img class="image" src="https://teamdev.tn/wp-content/uploads/2020/09/2.png" />
+           </a>
+         <p class="text">On met notre expertise métier pour permettre aux entreprises à mieux exploiter <br>le potentiel de digitalisation et des solutions innovantes</p>
+       </div>
+     </div>
+    <div class="col-sm-4"> 
+     <div class="footer-icons">
+         <a href="#"><i class="feather icon icon-facebook"></i></a>
+         <a href="#"><i class="feather icon icon-instagram"></i></a>
+         <a href="#"><i class="feather icon icon-github"></i></a>
+     </div>
+     <p class="lien"> 
+         Technopôle de Sousse, Route ceinture de Sahloul, Sousse, Tunisie
+         contact@teamdev.tn
+         +216 99 786 359
+         <br> Visit Us 
+     </p>
+     <a class="lien" href="https://teamdev.tn/">https://teamdev.tn/</a>
+     
+     </div>
+ 
+     <div class="col-sm-4"> 
+     <div class="footer-contact">
+       <h3 class="white-bold">Contact Us</h3>
+       <input type="text" placeholder="Name">
+       <input type="email" placeholder="Email">
+       <input type="text" placeholder="Phone">
+       <button class="btn btn-primary">Contact</button>
+     </div>
+ </div>
+   </footer>
+ 
+</div>

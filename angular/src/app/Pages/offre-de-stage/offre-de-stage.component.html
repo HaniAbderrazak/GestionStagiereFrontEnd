@@ -1,0 +1,29 @@
+<app-card [cardTitle]="offre.titre" class="text-white">
+    <div class="card-body">
+      <p class="card-text">
+        {{ offre.description }}
+      </p>
+    </div>
+  
+    <div class="btn-group" style="position: absolute; top: 10px; right: 10px;">
+      <a class="nav-link text-primary" [routerLink]="['/admin/offreDetails', offre.id]" style="text-decoration: underline;">
+        <i class="feather icon-chevron-right" style="margin-right: 5px; "></i>
+        Read more
+      </a>
+   
+    </div>
+    
+    <div style="position: absolute; top: 50px; right: 100px; display: flex; flex-direction: column; align-items: center;">
+        <h1 style="color: #f1a878;">{{stagieres.length}}</h1>
+        <div class="margin-left" style="color: #f1a878;">applied</div>
+      </div>
+    <div class="btn-group" style="margin-left: 80%;">
+      <button class="btn btn-icon btn-danger" (click)="onDeleteClick(offre)">
+        <i class="feather icon-trash"></i>
+      </button>
+      <button class="btn btn-icon btn-info bg-primary" (click)="onUpdateClick(offre)">
+        <i class="feather icon-edit"></i>
+      </button>
+    </div>
+  </app-card>
+  

@@ -1,0 +1,38 @@
+<app-navigation
+  class="pcoded-navbar menupos-fixed menu-light"
+  [ngClass]="{
+    'navbar-collapsed': navCollapsed,
+    'mob-open': navCollapsedMob
+  }"
+  (NavCollapsedMob)="navMobClick()"
+></app-navigation>
+<app-nav-bar
+  class="navbar pcoded-header navbar-expand-lg navbar-light header-blue headerPos-fixed"
+  (NavCollapse)="this.navCollapsed = !this.navCollapsed"
+  (NavCollapsedMob)="navMobClick()"
+></app-nav-bar>
+ 
+
+<div class="pcoded-main-container">
+  <div class="pcoded-wrapper">
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+        <div class="main-body">
+          <div class="page-wrapper">
+            <div class="m-t-10 m-b-20 m-r-20">
+              <a (click)="Navigate()" class="btn btn-icon btn-primary btn-lg " style="margin-left: 80%"><i class="feather icon-plus"></i></a>
+             </div>
+            <div> 
+              <h4> Liste des offres de stages</h4>
+            </div>
+<div class="row">
+<div class="col-sm-12">
+   <app-offre-de-stage   *ngFor ="let offre of offres ; let i= index"
+   [offre]="offre"
+   >
+    
+   </app-offre-de-stage>
+ 
+ </div>
+</div>
+</div></div></div></div></div></div> 

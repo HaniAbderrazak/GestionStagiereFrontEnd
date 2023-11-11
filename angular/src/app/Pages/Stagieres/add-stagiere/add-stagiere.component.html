@@ -1,0 +1,96 @@
+<app-navigation
+  class="pcoded-navbar menupos-fixed menu-light"
+  [ngClass]="{
+    'navbar-collapsed': navCollapsed,
+    'mob-open': navCollapsedMob
+  }"
+  (NavCollapsedMob)="navMobClick()"
+></app-navigation>
+<app-nav-bar
+  class="navbar pcoded-header navbar-expand-lg navbar-light header-blue headerPos-fixed"
+  (NavCollapse)="this.navCollapsed = !this.navCollapsed"
+  (NavCollapsedMob)="navMobClick()"
+></app-nav-bar>
+<div class="pcoded-main-container">
+  <div class="pcoded-wrapper">
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+        <div class="main-body">
+          <div class="page-wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                  <app-card cardTitle="" [options]="false">
+                    <h5>Ajouter Stagiere</h5>
+                    <hr />
+                    
+                      
+                        <form (ngSubmit)="onSubmit()" action="javascript:" class="was-validated">
+                       <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Nom</label>
+                            <input type="text" class="form-control " [(ngModel)]="nom" name="nom" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Titre" />
+                          </div> 
+
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Prenom</label>
+                            <input type="text" class="form-control " [(ngModel)]="prenom" name="prenom" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Titre" />
+                         </div>
+                         </div>
+
+                         <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Telephone</label>
+                            <input type="number" class="form-control " [(ngModel)]="telephone" name="telephone" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Titre" />
+                         </div>
+                        
+                         
+                         <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="email" class="form-control " [(ngModel)]="email" name="email" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Titre" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                             <label for="exampleInputPassword1">mot de passe</label>
+                            <input type="password" class="form-control " [(ngModel)]="motDePasse" name="motDePasse" required id="exampleInputPassword1" aria-describedby="emailHelp" placeholder="Enter Titre" />
+                        </div>
+                    
+
+                   
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">faculté</label>
+                            <input type="text" class="form-control " [(ngModel)]="Faculte" name="faculte" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Titre" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Adresse</label>
+                            <input type="text" class="form-control " [(ngModel)]="adresse" name="Adresse" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Titre" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">CV</label>
+                            <input type="file" class="form-control " [(ngModel)]="Cv" name="CV" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Titre" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Image</label>
+                            <input type="file" class="form-control " [(ngModel)]="image" name="Image" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Titre" />
+                        </div>
+                        
+                          <button *ngIf="!nom||!prenom" disabled type="submit" class="btn btn-primary">Submit</button>
+                          <button *ngIf="nom&&prenom"  type="submit" class="btn btn-primary">Submit</button>
+                        
+                    </div>
+                </div>
+            </form>
+                
+                     
+                   </app-card>
+                  </div>
+               </div>
+              </div>
+            </div>
+          </div> 
+          </div>
+        </div>
+    </div>

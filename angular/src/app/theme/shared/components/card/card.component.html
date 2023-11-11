@@ -1,0 +1,24 @@
+<div class="card" [ngClass]="cardClass" [@cardRemove]="cardRemove" #toAnimate>
+  <div class="card-header" *ngIf="!hidHeader" [ngClass]="headerClass">
+    <h4 *ngIf="!customHeader">{{ cardTitle }}</h4>
+    <span *ngIf="!customDate" class="d-block">{{ CardDate }}</span>
+    <div class="card-header-right" >
+     
+    </div>
+    <div></div>
+    <ng-content *ngIf="customHeader" select=".app-card-header"></ng-content>
+    <ng-content *ngIf="customDate" select=".app-card-subheader"></ng-content>
+  </div>
+
+  <div [@collapsedCard]="collapsedCard">
+    <div class="card-body" [ngClass]="blockClass">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <div *ngIf="isCardFooter" class="card-footer" [ngClass]="footerClass">
+    <ng-content select=".app-card-footer"></ng-content>
+  </div>
+  <div class="card-loader" *ngIf="loadCard">
+    <i class="pct-loader1 anim-rotate"></i>
+  </div>
+</div>
